@@ -8,14 +8,19 @@ public class AtencionMedica {
     private String tipoConsulta;
     private double valorBase;
     private double costoFinal;
+    private Mascota mascota;
+    private Consulta consulta;
 
-    public AtencionMedica(String id, Date fecha, String animalAtendido, String tipoConsulta, double valorBase, double costoFinal) {
+    public AtencionMedica(String id, Date fecha, String animalAtendido, String tipoConsulta, double valorBase,
+                          double costoFinal, Mascota mascota, Consulta consulta) {
         this.id = id;
         this.fecha = fecha;
         this.animalAtendido = animalAtendido;
         this.tipoConsulta = tipoConsulta;
         this.valorBase = valorBase;
         this.costoFinal = costoFinal;
+        this.mascota = mascota;
+        this.consulta = consulta;
     }
 
     public String getAnimalAtendido() {
@@ -64,5 +69,22 @@ public class AtencionMedica {
 
     public void setValorBase(double valorBase) {
         this.valorBase = valorBase;
+    }
+
+    public Consulta getConsulta() {return consulta;}
+
+    public void setConsulta(Consulta consulta) {this.consulta = consulta;}
+
+    public Mascota getMascota() {return mascota;}
+
+    public void setMascota(Mascota mascota) {this.mascota = mascota;}
+
+    public String resumenAtencion() {
+        return "Atención #" + id +
+                "\nFecha: " + fecha +
+                "\nMascota: " + mascota.getNombre() +
+                "\nConsulta: " + consulta.getClass()+
+                "\nValor Base: " + valorBase +
+                "\nCosto Final: " + costoFinal;
     }
 }
