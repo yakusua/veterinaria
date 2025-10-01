@@ -7,6 +7,7 @@ package org.example;
  edad,
  nombrePropietario
  numPropietario.
+ 
  */
 public class Mascota {
     private String id;
