@@ -1,94 +1,74 @@
 package org.example;
-/*
- id,
- nombre,
- especie,
- raza,
- edad,
- nombrePropietario
- numPropietario.
- 
- */
-public class Mascota {
-    private String id;
-    private String nombre;
-    private String especie;
-    private String raza;
-    private int edad;
-    private String numPropietario;
-    private String nombrePropietario;
 
-    public Mascota(
-            String id,
-            String nombre,
-            String especie,
-            String raza,
-            int edad,
-            String numPropietario,
-            String nombrePropietario
-    ) {
-        this.id = id;
+public abstract class Mascota {
+    protected String nombre;
+    protected int edad;
+    protected double peso;
+    protected String raza;
+    protected String id;
+    private CategoriaEdad categoriaEdad;
+
+    public Mascota(String nombre, int edad, double peso, String raza, String id) {
         this.nombre = nombre;
-        this.especie = especie;
-        this.raza = raza;
         this.edad = edad;
-        this.numPropietario = numPropietario;
-        this.nombrePropietario = nombrePropietario;
-    }
-
-    // get set id
-    public String getId(){
-        return id;
-    }
-    public void setId(String id){
-        this.id = id;
-    }
-
-    // get set nombre
-    public String getNombre(){
-        return nombre;
-    }
-    public void setNombre(String nombre){
-        this.nombre = nombre;
-    }
-
-    // get set puesto
-    public String getEspecie(){
-        return especie;
-    }
-    public void setEspecie(String especie){
-        this.especie = especie;
-    }
-
-    // get set correo
-    public String getRaza(){
-        return raza;
-    }
-    public void setRaza(String raza){
+        this.peso = peso;
         this.raza = raza;
+        this.id = id;
+        this.categoriaEdad = calcularCategoriaEdad();
     }
-    // get set edad
-    public int getEdad(){
+    // mostrar la edad según los meses cumplidos
+    private CategoriaEdad calcularCategoriaEdad() {
+        if (edad< 12) return CategoriaEdad.CACHORRO;
+        else return CategoriaEdad.ADULTO;
+    }
+
+    public int getEdad() {
         return edad;
     }
-    public void setEdad(int edad){
+
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 
-    // get set numPropietario
-    public String getNumPropietario(){
-        return numPropietario;
-    }
-    public void setNumPropietario(String numTelefonico){
-        this.numPropietario = numTelefonico;
+    public String getRaza() {
+        return raza;
     }
 
-    // get set fechaContratacion
-    public String getNombrePropietario(){
-        return nombrePropietario;
+    public void setRaza(String raza) {
+        this.raza = raza;
     }
-    public void setNombrePropietario(String fechaContratacion){
-        this.nombrePropietario = fechaContratacion;
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public CategoriaEdad getCategoriaEdad() {
+        return categoriaEdad;
+    }
+
+    public void setEdadMeses(int edad) {
+        this.edad = edad;
+        this.categoriaEdad = calcularCategoriaEdad();
     }
 
     // Override toString

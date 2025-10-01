@@ -45,8 +45,8 @@ public class Main {
                     String numPropietario = JOptionPane.showInputDialog(null, "ingrese el numero del propietario");
                     veterinaria.createMascota(
                             String.valueOf(currentId),
-                            nombre,
-                            especie,
+                            edad,
+                            peso,
                             raza,
                             Integer.parseInt(edad),
                             nombrePropietario,

@@ -37,15 +37,13 @@ public class Veterinaria {
     // Crud
     //Create mascota
     public boolean createMascota(
-            String id,
             String nombre,
-            String especie,
-            String raza,
             int edad,
-            String numPropietario,
-            String nombrePropietario
+            double peso,
+            String raza,
+            String id
     ){
-        Mascota newMascota = new Mascota(id,nombre,especie,raza,edad,numPropietario,nombrePropietario);
+        Mascota newMascota = new Mascota(nombre, edad, peso, raza, id);
         for (int i = 0; i< listMascota.length; i++){
             if (listMascota[i] == null){
                 listMascota[i] = newMascota;
