@@ -6,13 +6,15 @@ import java.util.List;
 public class Clinica {
     private String nombre;
     private String nit;
+    private List<Propietario> propietarios;
     private List<Mascota> mascotas;
     private List<Consulta> consultas;
     private List<AtencionMedica> atencionesMedicas;
 
-    public Clinica(String nombre, String nit, List<Mascota> mascotas, List<Consulta> consulta, List<AtencionMedica> atencionesMedicas) {
+    public Clinica(String nombre, String nit,List<Propietario> propietarios, List<Mascota> mascotas, List<Consulta> consulta, List<AtencionMedica> atencionesMedicas) {
         this.nombre = nombre;
         this.nit = nit;
+        this.propietarios = propietarios;
         this.mascotas = new ArrayList<>();
         this.consultas = new ArrayList<>();
         this.atencionesMedicas = new ArrayList<>();
@@ -24,6 +26,14 @@ public class Clinica {
 
     public void registrarConsulta(Consulta consulta) {
         consultas.add(consulta);
+    }
+
+    public List<Propietario> getPropietarios() {
+        return propietarios;
+    }
+
+    public void setPropietarios(List<Propietario> propietarios) {
+        this.propietarios = propietarios;
     }
 
     public List<Mascota> getMascotas() {

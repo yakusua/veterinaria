@@ -8,7 +8,7 @@ public abstract class Consulta {
     private List<Propietario> propietarios;
     private List<Mascota> mascotas;
 
-    public Consulta(double valorBase, String id, List<Propietario> propietarios, List<Mascota> mascotas){
+    public Consulta(double valorBase, String id, List<Propietario> propietarios, List<Mascota> mascotas) {
         this.valorBase = valorBase;
         this.id = id;
         this.propietarios = propietarios;
@@ -46,6 +46,9 @@ public abstract class Consulta {
     public void setPropietarios(List<Propietario> propietarios) {
         this.propietarios = propietarios;
     }
+
+    //funcionalidad 1 Calcular el costo de una consulta según especie, edad y tipo
+    public abstract double calcularCostoConsulta(Mascota mascota);
 }
 
 

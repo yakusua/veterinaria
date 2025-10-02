@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Control extends Consulta {
 
-    public Control(String id, double valorBase, List<Propietario> propietarios, List<Mascota> mascotas) {
-        super(id, valorBase, propietarios, mascotas);
+    public Control(double valorBase,String id, List<Propietario> propietarios, List<Mascota> mascotas) {
+        super(valorBase,id, propietarios, mascotas);
     }
 /*
     @Override
-    public double calcularCostoFinal() {
+    public double calcularCostoConsulta() {
         return getValorBase();
     }
 */
