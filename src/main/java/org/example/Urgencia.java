@@ -9,12 +9,23 @@ public class Urgencia extends Consulta {
     public double calcularCostoFinal(Mascota mascota) {
         double costo = getValorBase();
 
-        // Especie
-        switch (mascota.getEspecie().toLowerCase()) {
-            case "gato" -> costo *= 1.05;
-            case "ave" -> costo *= 1.15;
-            case "reptil" -> costo *= 1.20;
-        }
+            // según la especie
+            switch (mascota.getEspecie().toLowerCase()) {
+                case "gato":
+                    costo *= 1.05;
+                    break;
+                case "perro":
+                    costo *= 1.1;
+                    break;
+                case "ave":
+                    costo *= 1.15;
+                    break;
+                case "reptil":
+                    costo *= 1.20;
+                    break;
+                default:
+                    break;
+            }
 
         // Edad
         if (mascota.getCategoriaEdad() == CategoriaEdad.ADULTO) {
