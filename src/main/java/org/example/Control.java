@@ -7,7 +7,6 @@ public class Control extends Consulta {
     public Control(double valorBase,String id, List<Propietario> propietarios, List<Mascota> mascotas) {
         super(valorBase,id, propietarios, mascotas);
     }
-/*
     @Override
     public double calcularCostoConsulta (Mascota mascota){
         double costo = getValorBase();
