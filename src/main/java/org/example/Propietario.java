@@ -20,6 +20,7 @@ public class Propietario {
         this.mascotas = mascotas;
     }
 
+
     public Consulta getConsulta() {
         return consulta;
     }

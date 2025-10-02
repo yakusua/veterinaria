@@ -2,12 +2,13 @@ package org.example;
 import java.util.List;
 public class Urgencia extends Consulta {
 
-    public Urgencia(double valorBase,String id, List<Propietario> propietarios, List<Mascota> mascotas) {
+    public Urgencia(double valorBase, String id, List<Propietario> propietarios, List<Mascota> mascotas) {
         super(valorBase, id, propietarios, mascotas);
     }
-    @Override
-    public double calcularCostoFinal(Mascota mascota) {
-        double costo = getValorBase();
+
+        @Override
+        public double calcularCostoConsulta (Mascota mascota){
+            double costo = getValorBase();
 
             // según la especie
             switch (mascota.getEspecie().toLowerCase()) {
@@ -27,16 +28,16 @@ public class Urgencia extends Consulta {
                     break;
             }
 
-        // Edad
-        if (mascota.getCategoriaEdad() == CategoriaEdad.ADULTO) {
-            costo *= 1.10;
-        } else if (mascota.getCategoriaEdad() == CategoriaEdad.SENIOR) {
-            costo *= 1.20;
+            // calcular la edad
+            if (mascota.getCategoriaEdad() == CategoriaEdad.CACHORRO) {
+                costo *= 1.03;
+            } else if (mascota.getCategoriaEdad() == CategoriaEdad.ADULTO) {
+                costo *= 1.05;
+            }
+
+            // según el tipo (urgencia)
+            costo *= 1.25;
+
+            return costo;
         }
-
-        // Tipo de consulta (Urgencia = +50%)
-        costo *= 1.50;
-
-        return costo;
     }
-}
