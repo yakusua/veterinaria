@@ -7,14 +7,19 @@ public abstract class Mascota {
     protected String raza;
     protected String id;
     private CategoriaEdad categoriaEdad;
+    private Propietario propietario;
+    private String especie; // para relacionar con las subclases
 
-    public Mascota(String nombre, int edad, double peso, String raza, String id) {
+    public Mascota(String nombre, int edad, double peso, String raza, String id,
+                   Propietario propietario, String especie) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
         this.raza = raza;
         this.id = id;
         this.categoriaEdad = calcularCategoriaEdad();
+        this.propietario = propietario;
+        this.especie = especie;
     }
     // mostrar la edad según los meses cumplidos
     private CategoriaEdad calcularCategoriaEdad() {
@@ -24,10 +29,6 @@ public abstract class Mascota {
 
     public int getEdad() {
         return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     public String getRaza() {
@@ -62,19 +63,29 @@ public abstract class Mascota {
         this.id = id;
     }
 
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
+    }
+
     public CategoriaEdad getCategoriaEdad() {
         return categoriaEdad;
     }
 
-    public void setEdadMeses(int edad) {
+
+    public void setEdad(int edad) {
         this.edad = edad;
         this.categoriaEdad = calcularCategoriaEdad();
     }
 
-    // Override toString
-    @Override
-    public String toString(){
-        return "id: " +id+ "  nombre: "+nombre +"  edad: "+edad + "  nombrePropietario: "+nombrePropietario + "  numPropietario: "+numPropietario ;
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
+
+    public abstract String getEspecie();
 
 }
