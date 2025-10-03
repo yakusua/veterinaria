@@ -1,18 +1,23 @@
 package org.example;
-import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
 
-public abstract class Consulta {
-    protected double valorBase;
-    protected String id;
+
+public class Consulta {
+    private double valorBase;
+    private String id;
+    private LocalDate fecha;
     private List<Propietario> propietarios;
     private List<Mascota> mascotas;
+    private TipoConsulta tipoConsulta;
 
-    public Consulta(double valorBase, String id, List<Propietario> propietarios, List<Mascota> mascotas) {
+    public Consulta(double valorBase, String id,LocalDate fecha, List<Propietario> propietarios, List<Mascota> mascotas) {
         this.valorBase = valorBase;
         this.id = id;
+        this.fecha = fecha;
         this.propietarios = propietarios;
         this.mascotas = mascotas;
+        this.tipoConsulta = null;
     }
 
     public String getId() {
@@ -21,6 +26,14 @@ public abstract class Consulta {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
     public double getValorBase() {
@@ -47,8 +60,26 @@ public abstract class Consulta {
         this.propietarios = propietarios;
     }
 
+    public TipoConsulta getTipoConsulta() {
+        return tipoConsulta;
+    }
+
+    public void setTipoConsulta(TipoConsulta tipoConsulta) {
+        this.tipoConsulta = tipoConsulta;
+    }
+
     //funcionalidad 1 Calcular el costo de una consulta según especie, edad y tipo
-    public abstract double calcularCostoConsulta(Mascota mascota);
+    public double calcularCosto() {
+        double costo = valorBase;
+
+        if (tipoConsulta == TipoConsulta.GENERAL && mascota instanceof Perro perro) {
+            if (perro.getCategoriaEdad() == CategoriaEdad.JOVEN) {
+                costo += valorBase * 0.10; // +10% si es perro joven
+            }
+        }
+
+        return costo;
+    }
 }
 
 

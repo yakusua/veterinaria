@@ -9,23 +9,21 @@ public class Clinica {
     private List<Propietario> propietarios;
     private List<Mascota> mascotas;
     private List<Consulta> consultas;
-    private List<AtencionMedica> atencionesMedicas;
 
-    public Clinica(String nombre, String nit,List<Propietario> propietarios, List<Mascota> mascotas, List<Consulta> consulta, List<AtencionMedica> atencionesMedicas) {
+    public Clinica(String nombre, String nit, List<Propietario> propietarios, List<Mascota> mascotas, List<Consulta> consulta) {
         this.nombre = nombre;
         this.nit = nit;
         this.propietarios = propietarios;
         this.mascotas = new ArrayList<>();
         this.consultas = new ArrayList<>();
-        this.atencionesMedicas = new ArrayList<>();
     }
 
-    public void registrarMascota(Mascota mascota) {
-        mascotas.add(mascota);
+    public List<Consulta> getConsultas() {
+        return consultas;
     }
 
-    public void registrarConsulta(Consulta consulta) {
-        consultas.add(consulta);
+    public void setConsultas(List<Consulta> consultas) {
+        this.consultas = consultas;
     }
 
     public List<Propietario> getPropietarios() {
@@ -36,20 +34,12 @@ public class Clinica {
         this.propietarios = propietarios;
     }
 
-    public List<Mascota> getMascotas() {
-        return mascotas;
+    public String getNombre() {
+        return nombre;
     }
 
-    public List<Consulta> getConsultas() {
-        return consultas;
-    }
-
-    public List<AtencionMedica> getAtencionesMedicas() {
-        return atencionesMedicas;
-    }
-
-    public void setAtencionesMedicas(List<AtencionMedica> atencionesMedicas) {
-        this.atencionesMedicas = atencionesMedicas;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getNit() {
@@ -60,11 +50,12 @@ public class Clinica {
         this.nit = nit;
     }
 
-    public String getNombre() {
-        return nombre;
+    public List<Mascota> getMascotas() {
+        return mascotas;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setMascotas(List<Mascota> mascotas) {
+        this.mascotas = mascotas;
     }
 }
+
