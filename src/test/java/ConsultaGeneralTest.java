@@ -1,5 +1,4 @@
-package org.example;
-
+import org.example.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +7,7 @@ public class ConsultaGeneralTest {
     @Test
     void testCostoConsultaPerroJoven() {
         Propietario propietario = new Propietario("Miguel", "123","Armenia",4,null,null);
-        Mascota perro = new Perro("Candy", 6, 12.0, "Criollito", "M1", propietario);
+        Mascota perro = new Perro("Candy", 6, 12.0, "Criollito", "M1", propietario, "perro");
 
         Consulta consulta = new General(50000, "C1");
         double costo = consulta.calcularCostoConsulta(perro);
