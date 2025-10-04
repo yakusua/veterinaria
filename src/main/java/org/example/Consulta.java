@@ -69,7 +69,7 @@ public class Consulta {
     }
 
     //funcionalidad 1 Calcular el costo de una consulta según especie, edad y tipo
-    public double calcularCosto() {
+    public double calcularCosto(Mascota mascota) {
         double costo = valorBase;
 
         if (tipoConsulta == TipoConsulta.GENERAL && mascota instanceof Perro perro) {
