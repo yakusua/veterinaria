@@ -5,12 +5,17 @@ public class Ave extends Mascota {
     private boolean capacidadVuelo;
     private int palabrasImitadas;
 
+
     public Ave(String nombre, int edad, double peso, String raza, String id, Propietario propietario,
                String especie, String tipoPlumaje, boolean capacidadVuelo, int palabrasImitadas) {
         super(nombre, edad, peso, raza, id, propietario, especie);
         this.tipoPlumaje = tipoPlumaje;
         this.capacidadVuelo = capacidadVuelo;
         this.palabrasImitadas = palabrasImitadas;
+
+    public Ave(String nombre, int edad, double peso, String raza, String id, Propietario propietario, String especie) {
+        super(nombre, edad, peso, raza,id, propietario);
+
     }
 
     public boolean isCapacidadVuelo() {
