@@ -1,4 +1,4 @@
-package org.example;
+package org;
 
 public class Gato extends Mascota {
     private double horasSueno;
@@ -7,12 +7,15 @@ public class Gato extends Mascota {
 
 
     public Gato(String nombre, int edad, double peso, String raza, String id, Propietario propietario,
-                String especie, double horasSueno, int nivelIndependencia, TipoGato tipoGato) {
-        super(nombre, edad, peso, raza, id, propietario, "");
-
-    public Gato(String nombre, int edad, double peso, String raza, String id, Propietario propietario, String especie) {
+                double horasSueno, int nivelIndependencia, TipoGato tipoGato) {
         super(nombre, edad, peso, raza, id, propietario);
+        this.horasSueno = horasSueno;
+        this.nivelIndependencia = nivelIndependencia;
+        this.tipoGato = tipoGato;
+    }
 
+    public Gato(String nombre, int edad, double peso, String raza, String id, Propietario propietario) {
+        super(nombre, edad, peso, raza, id, propietario);
     }
 
     public double getHorasSueno() {
@@ -43,5 +46,4 @@ public class Gato extends Mascota {
     public String getEspecie() {
         return "Gato";
     }
-
 }

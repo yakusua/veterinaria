@@ -1,5 +1,4 @@
-package org.example;
-import java.util.List;
+package org;
 import java.time.LocalDate;
 
 
@@ -7,16 +6,16 @@ public class Consulta {
     private double valorBase;
     private String id;
     private LocalDate fecha;
-    private List<Propietario> propietarios;
-    private List<Mascota> mascotas;
+    private Propietario propietario;
+    private Mascota mascota;
     private TipoConsulta tipoConsulta;
 
-    public Consulta(double valorBase, String id,LocalDate fecha, List<Propietario> propietarios, List<Mascota> mascotas) {
+    public Consulta(double valorBase, String id, LocalDate fecha, Propietario propietario, Mascota mascota) {
         this.valorBase = valorBase;
         this.id = id;
         this.fecha = fecha;
-        this.propietarios = propietarios;
-        this.mascotas = mascotas;
+        this.propietario = propietario;
+        this.mascota = mascota;
         this.tipoConsulta = null;
     }
 
@@ -44,21 +43,6 @@ public class Consulta {
         this.valorBase = valorBase;
     }
 
-    public List<Mascota> getMascotas() {
-        return mascotas;
-    }
-
-    public void setMascotas(List<Mascota> mascotas) {
-        this.mascotas = mascotas;
-    }
-
-    public List<Propietario> getPropietarios() {
-        return propietarios;
-    }
-
-    public void setPropietarios(List<Propietario> propietarios) {
-        this.propietarios = propietarios;
-    }
 
     public TipoConsulta getTipoConsulta() {
         return tipoConsulta;
@@ -69,17 +53,17 @@ public class Consulta {
     }
 
     //funcionalidad 1 Calcular el costo de una consulta según especie, edad y tipo
-    public double calcularCosto(Mascota mascota) {
+    public double calcularCosto() {
         double costo = valorBase;
 
         if (tipoConsulta == TipoConsulta.GENERAL && mascota instanceof Perro perro) {
-            if (perro.getCategoriaEdad() == CategoriaEdad.JOVEN) {
+            if (perro.getCategoriaEdad() == CategoriaEdad.CACHORRO) {
                 costo += valorBase * 0.10; // +10% si es perro joven
             }
         }
-
         return costo;
     }
+
 }
 
 

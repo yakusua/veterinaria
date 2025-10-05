@@ -1,4 +1,4 @@
-package org.example;
+package org;
 
 public class Perro extends Mascota {
     private int nivelAdiestramiento; // atributos propios
@@ -6,14 +6,15 @@ public class Perro extends Mascota {
     private Tamano tamano; // relación con el enum
 
 
-    public Perro(String nombre, int edad, double peso, String raza, String id,
-                 Propietario propietario, int cantidadPaseos, Tamano tamano) {
-        super(nombre, edad, peso, raza, id, propietario, "Perro");
+    public Perro(String nombre, int edad, double peso, String raza, String id, Propietario propietario,
+                  int nivelAdiestramiento, int cantidadPaseos, Tamano tamano) {
+        super(nombre, edad, peso, raza, id, propietario);
 
+        this.nivelAdiestramiento = nivelAdiestramiento;
         this.cantidadPaseos = cantidadPaseos;
         this.tamano = tamano;
-
-    public Perro(String nombre, int edad, double peso, String raza, String id, Propietario propietario,String especie) {
+    }
+    public Perro(String nombre, int edad, double peso, String raza, String id, Propietario propietario) {
         super(nombre, edad, peso, raza,id, propietario);
 
     }

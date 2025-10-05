@@ -1,4 +1,4 @@
-package org.example;
+package org;
 
 public class Ave extends Mascota {
     private String tipoPlumaje;
@@ -6,14 +6,15 @@ public class Ave extends Mascota {
     private int palabrasImitadas;
 
 
-    public Ave(String nombre, int edad, double peso, String raza, String id, Propietario propietario,
-               String especie, String tipoPlumaje, boolean capacidadVuelo, int palabrasImitadas) {
-        super(nombre, edad, peso, raza, id, propietario, especie);
+    public Ave(String nombre, int edad, double peso, String raza, String id, Propietario propietario
+            , String tipoPlumaje, boolean capacidadVuelo, int palabrasImitadas) {
+        super(nombre, edad, peso, raza, id, propietario);
         this.tipoPlumaje = tipoPlumaje;
         this.capacidadVuelo = capacidadVuelo;
         this.palabrasImitadas = palabrasImitadas;
+    }
 
-    public Ave(String nombre, int edad, double peso, String raza, String id, Propietario propietario, String especie) {
+    public Ave(String nombre, int edad, double peso, String raza, String id, Propietario propietario) {
         super(nombre, edad, peso, raza,id, propietario);
 
     }

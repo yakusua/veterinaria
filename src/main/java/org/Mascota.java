@@ -1,4 +1,4 @@
-package org.example;
+package org;
 
 public abstract class Mascota {
     protected String nombre;
