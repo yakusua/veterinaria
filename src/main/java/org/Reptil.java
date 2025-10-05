@@ -1,4 +1,4 @@
-package org.example;
+package org;
 
 public class Reptil extends Mascota {
     private double temperatura;
@@ -6,8 +6,8 @@ public class Reptil extends Mascota {
     private Peligrosidad peligrosidad;
 
     public Reptil(String nombre, int edad, double peso, String raza, String id, Propietario propietario,
-                  String especie, double temperatura, String tipoHabitat, String peligrosidad) {
-        super(nombre, edad, peso, raza,id, propietario, "");
+                  double temperatura, String tipoHabitat, String peligrosidad) {
+        super(nombre, edad, peso, raza,id, propietario);
     }
 
     public Peligrosidad getPeligrosidad() {
