@@ -57,5 +57,25 @@ public class Clinica {
     public void setMascotas(List<Mascota> mascotas) {
         this.mascotas = mascotas;
     }
+
+
+
+    public double estimarDosis(String idMascota) {
+        double miliXKilo = Double.parseDouble(JOptionPane.showInputDialog("Ingrese los miligramos por kilo del medicamento:"));
+
+        for (int i = 0; i < mascotas.size(); i++) {
+            Mascota mascota = mascotas.get(i);
+
+            if (mascota.getId().equals(idMascota)) {
+                double dosis = mascota.getPeso() * miliXKilo;
+                JOptionPane.showMessageDialog(null,
+                        "La dosis estimada para "+ mascota.getNombre() + " es de: " + dosis + " mg");
+                return dosis;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "No se encontró una mascota con el ID proporcionado.");
+        return -1; // en caso de no hallarla
+    }
+
 }
 
