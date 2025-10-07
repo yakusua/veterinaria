@@ -1,6 +1,6 @@
 package org;
 import java.time.LocalDate;
-
+import javax.swing.JOptionPane; // para la funcionalidad
 
 public class Consulta {
     private double valorBase;
@@ -52,6 +52,22 @@ public class Consulta {
         this.tipoConsulta = tipoConsulta;
     }
 
+    public Mascota getMascota() {
+        return mascota;
+    }
+
+    public void setMascota(Mascota mascota) {
+        this.mascota = mascota;
+    }
+
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
+    }
+
     //funcionalidad 1 Calcular el costo de una consulta según especie, edad y tipo
     public double calcularCosto() {
         double costo = valorBase;
@@ -63,6 +79,35 @@ public class Consulta {
         }
         return costo;
     }
+
+    // funcionalidad 3
+    public void sugerirProximaVacunacion() {
+        if (mascota == null) {
+            JOptionPane.showMessageDialog(null, "No hay mascota relacionada  a la consulta.");
+            return;
+        }
+
+        LocalDate proximaFecha = null;
+        String especie = "";
+
+        if (mascota instanceof Perro || mascota instanceof Gato) {
+            proximaFecha = fecha.plusMonths(12);
+            especie = "perro o gato";
+        } else if (mascota instanceof Ave) {
+            proximaFecha = fecha.plusMonths(8);
+            especie = "ave";
+        } else if (mascota instanceof Reptil) {
+            proximaFecha = fecha.plusMonths(18);
+            especie = "reptil";
+        } else {
+            JOptionPane.showMessageDialog(null, "Especie no reconocida para calcular vacunación.");
+            return;
+        }
+
+        JOptionPane.showMessageDialog(null, "La próxima vacunación de: " + mascota.getNombre()
+                + "de tipo: "+ especie + "será el " + proximaFecha);
+    }
+
 
 }
 

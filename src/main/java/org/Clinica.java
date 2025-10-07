@@ -59,9 +59,10 @@ public class Clinica {
     }
 
 
-
-    public double estimarDosis(String idMascota) {
-        double miliXKilo = Double.parseDouble(JOptionPane.showInputDialog("Ingrese los miligramos por kilo del medicamento:"));
+/* funcionalidad 2 Estimar la dosis de un medicamento
+ con base en el peso del animal (peso × miligramos por kilo)*/
+    public double calcularDosis(String idMascota) {
+        double miliXKilo = Double.parseDouble(JOptionPane.showInputDialog("Ingrese los mg por kg del medicamento:"));
 
         for (int i = 0; i < mascotas.size(); i++) {
             Mascota mascota = mascotas.get(i);
