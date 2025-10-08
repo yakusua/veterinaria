@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.veterinaria.viewcontroller.VeterinariaViewController">
+
+    <top>
+        <Label text="Sistema Veterinaria" style="-fx-font-size: 20px; -fx-padding: 10;" />
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="15" style="-fx-padding: 20;">
+            <Button text="Gestión de Clientes" fx:id="btnClientes"/>
+            <Button text="Gestión de Mascotas" fx:id="btnMascotas"/>
+            <Button text="Gestión de Consultas" fx:id="btnConsultas"/>
+        </VBox>
+    </center>
+
+</BorderPane>
