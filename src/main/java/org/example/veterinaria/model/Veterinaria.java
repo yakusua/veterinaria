@@ -1,5 +1,6 @@
 package org.example.veterinaria.model;
 
+import javax.swing.*;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,6 +28,9 @@ public class Veterinaria {
     public void setNombre(String nombre) { this.nombre = nombre; }
 
     public LinkedList<Mascota> getListMascotas() { return listMascotas; }
+    public void setListMascotas(LinkedList<Mascota> listMascotas) {
+        this.listMascotas = listMascotas;
+    }
 
     public boolean createMascota(String nombre, int edad, double peso, String raza, String id,
                                  Propietario propietario, String especie) {
@@ -148,7 +152,7 @@ public class Veterinaria {
             }
         }
 
-        Propietario nuevoPropietario = new Propietario(id ,nombre, contacto, direccion, puntosFidelidad, consulta, mascotas);
+        Propietario nuevoPropietario = new Propietario(id ,nombre, contacto, puntosFidelidad, consulta, mascotas);
         listaPropietarios.add(nuevoPropietario);
         return true;
     }
@@ -180,7 +184,6 @@ public class Veterinaria {
                         p.getId(),
                         nombre,
                         nuevoContacto,
-                        nuevaDireccion,
                         nuevosPuntos,
                         nuevaConsulta,
                         nuevasMascotas
@@ -200,6 +203,7 @@ public class Veterinaria {
             }
         }
         return false;
+
     }
 
     /* funcionalidad 2 Estimar la dosis de un medicamento
@@ -220,5 +224,11 @@ public class Veterinaria {
         }
         JOptionPane.showMessageDialog(null, "No se encontró una mascota con el ID proporcionado.");
         return -1; // en caso de no hallarla
+    }
+    /* Funcionalidad 5 - Obtener el ranking de responsables más frecuentes,
+     listando los dueños con mayor número de visitas a la clínica. */
+
+    public void obtenerRankingFidelidad (int puntosFidelidad){
+
     }
 }

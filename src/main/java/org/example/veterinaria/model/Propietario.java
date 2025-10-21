@@ -11,8 +11,8 @@ public class Propietario {
     private Consulta consulta;
     private List<Mascota> mascotas;
 
-    public Propietario( String id,String nombre, String contacto, String direccion, int puntosFidelidad,
-                        Consulta consulta, List<Mascota> mascotas ) {
+    public Propietario(String id, String nombre, String contacto, int puntosFidelidad,
+                       Consulta consulta, List<Mascota> mascotas ) {
         this.id = id;
         this.nombre = nombre;
         this.contacto = contacto;

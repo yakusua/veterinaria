@@ -19,6 +19,11 @@ public class Ave extends Mascota {
 
     }
 
+    @Override
+    public CategoriaEdad getCategoriaEdad() {
+        return null;
+    }
+
     public boolean getCapacidadVuelo() {
         return capacidadVuelo;
     }

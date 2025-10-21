@@ -23,8 +23,8 @@
                 <Label text="Teléfono:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
                 <TextField fx:id="txtTelefono" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-                <Label text="Direccion:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <TextField fx:id="txtDireccion" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Direccion:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtDireccion" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
             </GridPane>
 
             <HBox spacing="10" alignment="CENTER">

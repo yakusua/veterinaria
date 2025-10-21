@@ -78,27 +78,25 @@ public class Consulta {
         }
         return costo;
     }
+    /*     funcionalidad 3 (Se cambia a Mascota)
+        public LocalDate sugerirProximaVacunacion() {
+          LocalDate newFecha = fecha;
+          LocalDate proximaFecha = null;
+           String especie = "";
 
-    // funcionalidad 3
-    public LocalDate sugerirProximaVacunacion() {
-        LocalDate newFecha = fecha;
-        LocalDate proximaFecha = null;
-        String especie = "";
-
-        if (mascota instanceof Perro || mascota instanceof Gato) {
-            proximaFecha = newFecha.plusMonths(12);
-            especie = "perro o gato";
-        } else if (mascota instanceof Ave) {
-            proximaFecha = newFecha.plusMonths(8);
-            especie = "ave";
-        } else if (mascota instanceof Reptil) {
-            proximaFecha = newFecha.plusMonths(18);
+         if (mascota instanceof Perro || mascota instanceof Gato) {
+               proximaFecha = newFecha.plusMonths(12);
+               especie = "perro o gato";
+           } else if (mascota instanceof Ave) {
+             proximaFecha = newFecha.plusMonths(8);
+             especie = "ave";
+           } else if (mascota instanceof Reptil) {
+              proximaFecha = newFecha.plusMonths(18);
             especie = "reptil";
-        }
-        return newFecha;
-    }
-
-
+         }
+         return fecha;
+      }
+    */
 }
 
 

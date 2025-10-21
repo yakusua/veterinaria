@@ -35,6 +35,11 @@ public class Reptil extends Mascota {
     }
 
     @Override
+    public CategoriaEdad getCategoriaEdad() {
+        return null;
+    }
+
+    @Override
     public String getEspecie() {
         return "Reptil";
     }

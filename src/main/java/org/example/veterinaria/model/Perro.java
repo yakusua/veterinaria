@@ -1,5 +1,7 @@
 package org.example.veterinaria.model;
 
+import java.time.LocalDate;
+
 public class Perro extends Mascota {
     private int nivelAdiestramiento; // atributos propios
     private int cantidadPaseos;
@@ -13,10 +15,6 @@ public class Perro extends Mascota {
         this.nivelAdiestramiento = nivelAdiestramiento;
         this.cantidadPaseos = cantidadPaseos;
         this.tamano = tamano;
-    }
-    public Perro(String nombre, int edad, double peso, String raza, String id, Propietario propietario) {
-        super(nombre, edad, peso, raza,id, propietario);
-
     }
 
     public int getCantidadPaseos() {
@@ -44,7 +42,13 @@ public class Perro extends Mascota {
     }
 
     @Override
+    public CategoriaEdad getCategoriaEdad() {
+        return null;
+    }
+
+    @Override
     public String getEspecie() {
         return "Perro";
     }
+
 }

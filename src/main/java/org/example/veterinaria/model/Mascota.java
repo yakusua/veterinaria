@@ -1,11 +1,14 @@
 package org.example.veterinaria.model;
 
+import java.time.LocalDate;
+
 public abstract class Mascota {
     protected String nombre;
     protected int edad;
     protected double peso;
     protected String raza;
     protected String id;
+    protected LocalDate fecha;
     private CategoriaEdad categoriaEdad;
     private Propietario propietario;
 
@@ -21,8 +24,13 @@ public abstract class Mascota {
     }
     // edad por mes
     private CategoriaEdad calcularCategoriaEdad() {
-        if (edad< 12) return CategoriaEdad.CACHORRO;
-        else return CategoriaEdad.ADULTO;
+        if (getEdad() < 6) {
+            return CategoriaEdad.CACHORRO;
+        } else if (getEdad() <= 120) {
+            return CategoriaEdad.ADULTO;
+        } else {
+            return CategoriaEdad.SENIOR;
+        }
     }
 
     public int getEdad() {
@@ -69,9 +77,7 @@ public abstract class Mascota {
         this.propietario = propietario;
     }
 
-    public CategoriaEdad getCategoriaEdad() {
-        return categoriaEdad;
-    }
+    public abstract CategoriaEdad getCategoriaEdad();
 
 
     public void setEdad(int edad) {
@@ -81,4 +87,22 @@ public abstract class Mascota {
 
     public abstract String getEspecie();
 
+    // funcionalidad 3 (se corrige para el test de vacunación)
+    public LocalDate sugerirProximaVacunacion() {
+        if (this instanceof Perro || this instanceof Gato) {
+            return fecha.plusMonths(12);
+        } else if (this instanceof Ave) {
+            return fecha.plusMonths(8);
+        } else if (this instanceof Reptil) {
+            return fecha.plusMonths(18);
+        }
+        return fecha;
+    }
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
 }

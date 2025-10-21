@@ -46,4 +46,13 @@ public class Gato extends Mascota {
     public String getEspecie() {
         return "Gato";
     }
+
+    @Override
+    public CategoriaEdad getCategoriaEdad() {
+        return null;
+    }
+
+    public void setCategoriaEdad(CategoriaEdad categoriaEdad) {
+
+    }
 }
