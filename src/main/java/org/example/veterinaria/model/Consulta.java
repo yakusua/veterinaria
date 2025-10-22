@@ -78,6 +78,22 @@ public class Consulta {
         }
         return costo;
     }
+    
+    public int getPrioridad() {
+        switch (tipoConsulta) {
+            case URGENCIA:
+                return 1;
+            case CONTROL:
+                return 2;
+            case VACUNACION:
+                return 3;
+            case GENERAL:
+                return 4;
+            default:
+                return 0;
+        }
+    }
+
     /*     funcionalidad 3 (Se cambia a Mascota)
         public LocalDate sugerirProximaVacunacion() {
           LocalDate newFecha = fecha;
