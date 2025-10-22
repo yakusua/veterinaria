@@ -19,6 +19,7 @@ public class Veterinaria {
         this.listMascotas = new LinkedList<>();
         this.listConsultas = new LinkedList<>();
         this.listaPropietarios = new LinkedList<>();
+
     }
 
     public String getNit() { return nit; }
@@ -30,6 +31,18 @@ public class Veterinaria {
     public LinkedList<Mascota> getListMascotas() { return listMascotas; }
     public void setListMascotas(LinkedList<Mascota> listMascotas) {
         this.listMascotas = listMascotas;
+    }
+
+    public LinkedList<Consulta> getListConsultas() {
+        return listConsultas;
+    }
+
+    public void setListConsultas(LinkedList<Consulta> listConsultas) {
+        this.listConsultas = listConsultas;
+    }
+
+    public void setListaPropietarios(LinkedList<Propietario> listaPropietarios) {
+        this.listaPropietarios = listaPropietarios;
     }
 
     public boolean createMascota(String nombre, int edad, double peso, String raza, String id,
@@ -225,10 +238,57 @@ public class Veterinaria {
         JOptionPane.showMessageDialog(null, "No se encontró una mascota con el ID proporcionado.");
         return -1; // en caso de no hallarla
     }
-    /* Funcionalidad 5 - Obtener el ranking de responsables más frecuentes,
-     listando los dueños con mayor número de visitas a la clínica. */
+    //sobre carga para lograr test de excepcuion
+    public double calcularDosis(String idMascota, double miliXKilo) {
+        if (miliXKilo <= 0) {
+            throw new IllegalArgumentException("Los mg X kg deben ser mayores que cero.");
+        }
 
-    public void obtenerRankingFidelidad (int puntosFidelidad){
-
+        for (Mascota mascota : listMascotas) {
+            if (mascota.getId().equals(idMascota)) {
+                if (mascota.getPeso() <= 0) {
+                    throw new IllegalArgumentException("El peso de la mascota es invalido.");
+                }
+                return mascota.getPeso() * miliXKilo;
+            }
+        }
+        throw new IllegalArgumentException("No se encontró una mascota con el ID proporcionado.");
     }
+
+    // Funcionalidad4 calcular la prioridad de atención que sea URGENCIA
+    public LinkedList<Consulta> obtenerConsultasUrgencia() {
+        LinkedList<Consulta> urgencias = new LinkedList<>();
+        for (Consulta consulta : listConsultas) {
+            if (consulta.getTipoConsulta() == TipoConsulta.URGENCIA) {
+                urgencias.add(consulta);
+            }
+        }
+        return urgencias;
+    }
+
+    //Funcionalidad 5 - Obtener el ranking de responsables más frecuentes,
+    public LinkedList<Propietario> obtenerResponsablesMasFrecuentes() {
+        LinkedList<Propietario> propietariosFrecuentes = new LinkedList<>();
+
+        if (listaPropietarios.isEmpty()) {
+            return propietariosFrecuentes;
+        }
+
+        int maxPuntos = 0;
+// recorrer prop, comparar puntos y asignar
+        for (Propietario propietario : listaPropietarios) {
+            if (propietario.getPuntosFidelidad() > maxPuntos) {
+                maxPuntos = propietario.getPuntosFidelidad();
+            }
+        }
+// mismo recorrido pero agregar a una lista (para usar en otra cosa)
+        for (Propietario propietario : listaPropietarios) {
+            if (propietario.getPuntosFidelidad() == maxPuntos) {
+                propietariosFrecuentes.add(propietario);
+            }
+        }
+        return propietariosFrecuentes;
+    }
+
+
 }

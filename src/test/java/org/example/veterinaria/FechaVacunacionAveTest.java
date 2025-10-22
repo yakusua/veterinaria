@@ -30,8 +30,8 @@ public class FechaVacunacionAveTest {
 
         LocalDate fechaUltima = LocalDate.of(2025, 10, 02);
         ave.setFecha(fechaUltima);
-        LocalDate proximaEsperada = fechaUltima.plusMonths(12);
+        LocalDate proximaEsperada = fechaUltima.plusMonths(8);
         assertEquals(proximaEsperada, ave.sugerirProximaVacunacion(),
-                "La próxima vacunación de un perro debe ser 12 meses después");
+                "La próxima vacunación de un ave debe ser 8 meses después");
     }
 }

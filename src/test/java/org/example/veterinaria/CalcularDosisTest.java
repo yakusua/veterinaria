@@ -1,9 +1,6 @@
 package org.example.veterinaria;
-
 import org.example.veterinaria.model.*;
 import org.junit.jupiter.api.Test;
-import java.util.LinkedList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalcularDosisTest {
@@ -33,12 +30,11 @@ public class CalcularDosisTest {
 
         veterinaria.getListMascotas().add(perro);
 
-       // se simulan los datos
         double mgPorKg = 5.0;
-        double dosisEsperada = perro.getPeso() * mgPorKg; // 10 * 5 = 50 mg
-        double resultado = perro.getPeso() * mgPorKg; // simulamos el cálculo interno del método
+        double dosisEsperada = perro.getPeso() * mgPorKg;
+        double resultado = perro.getPeso() * mgPorKg;
 
         assertEquals(dosisEsperada, resultado, 0.001,
-                "La dosis debe ser igual al peso por los mg/kg ingresados");
+                "La dosis debe ser igual al peso por los mg/kg ingresados"); //0.001 es por margen de error con double en los asserts
     }
 }

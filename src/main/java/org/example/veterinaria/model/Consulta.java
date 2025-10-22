@@ -78,7 +78,9 @@ public class Consulta {
         }
         return costo;
     }
-    
+
+    //para que el test arroje 1 como prioridad alta, se debe asignar nivel de prioridad a las demás (creo)
+
     public int getPrioridad() {
         switch (tipoConsulta) {
             case URGENCIA:
